@@ -1,0 +1,93 @@
+<form class="form" [formGroup]="buyTicketForm" (ngSubmit)="submitForm()">
+  <div class="grid">
+    <div>
+      <mat-form-field class="input">
+        <input
+          matInput
+          formControlName="whereFrom"
+          #message
+          maxlength="250"
+          placeholder="Откуда"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-stroked-button>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="home"
+        >
+        </mat-icon>
+      </button>
+    </div>
+    <div>
+      <mat-form-field class="input">
+        <input
+          matInput
+          formControlName="whither"
+          #message
+          maxlength="250"
+          placeholder="Куда"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- <mat-form-field>
+    <mat-label>Дата</mat-label>
+    <input matInput [matDatepicker]="picker" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field> -->
+
+  <mat-button-toggle-group
+    name="fontStyle"
+    aria-label="Font Style"
+    formControlName="type"
+  >
+    <mat-button-toggle value="all"> любой </mat-button-toggle>
+
+    <mat-button-toggle value="airplane">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="airplanemode_active"
+      >
+      </mat-icon>
+    </mat-button-toggle>
+
+    <mat-button-toggle value="bus">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="directions_bus"
+      >
+      </mat-icon>
+    </mat-button-toggle>
+
+    <mat-button-toggle value="tram">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="tram"
+      >
+      </mat-icon>
+    </mat-button-toggle>
+
+    <mat-button-toggle value="car">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="directions_car"
+      >
+      </mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <button mat-flat-button type="submit" [disabled]="buyTicketForm.invalid">
+    Найти
+  </button>
+</form>
+<div *ngIf="isShowSchedule">date_range</div>
